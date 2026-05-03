@@ -350,13 +350,19 @@ input,select{font-family:'Inter',sans-serif;}
 .mo-bar2{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;}
 .mo-fill2{height:100%;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:3px;transition:width .3s;}
 .mo-min{font-size:11px;color:var(--muted);text-align:center;margin-top:4px;}
-.mo-log{width:100%;max-width:340px;max-height:180px;overflow-y:auto;
-  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
-  padding:10px;margin-bottom:14px;}
-.mo-ev{display:flex;align-items:center;gap:7px;padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;animation:fadeIn .3s;}
+.mo-log{width:100%;max-width:380px;max-height:240px;overflow-y:auto;
+  background:linear-gradient(180deg,#0f1623,#0a0e16);border:1px solid var(--border);border-radius:12px;
+  padding:8px;margin-bottom:14px;box-shadow:inset 0 2px 8px rgba(0,0,0,.4);}
+.mo-ev{display:flex;align-items:flex-start;gap:8px;padding:7px 8px;border-bottom:1px solid var(--border);font-size:13px;line-height:1.4;animation:fadeIn .35s;border-radius:6px;}
 .mo-ev:last-child{border-bottom:none;}
-.mo-ev-min{font-weight:700;color:var(--muted);min-width:24px;font-family:'Bebas Neue',sans-serif;}
-.mo-ev-ico{font-size:15px;}
+.mo-ev-min{font-weight:700;color:var(--muted);min-width:30px;font-family:'Bebas Neue',sans-serif;font-size:13px;flex-shrink:0;padding-top:1px;}
+.mo-ev-ico{font-size:18px;flex-shrink:0;line-height:1.2;}
+.mo-ev-text{flex:1;font-size:13px;line-height:1.4;color:#e2e8f0;}
+.mo-ev-pre{opacity:.65;font-style:italic;font-size:12px;background:transparent;border-bottom:none;padding:3px 8px;}
+.mo-ev-pre .mo-ev-text{color:#94a3b8;font-size:12px;}
+.mo-ev-key{background:rgba(255,255,255,.025);font-weight:600;animation:keyEvPulse .8s;border-left:3px solid #f59e0b;}
+@keyframes keyEvPulse{0%{background:rgba(245,158,11,.12);transform:scale(1.02)}100%{background:rgba(255,255,255,.025);transform:scale(1)}}
+.mo-ev-key b{font-size:14px;}
 .mo-stats-row{display:flex;gap:10px;width:100%;max-width:340px;margin-bottom:14px;}
 .mo-stat-box{flex:1;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:8px;text-align:center;}
 .mo-stat-box .msv{font-size:16px;font-weight:700;font-family:'Bebas Neue',sans-serif;}
@@ -716,19 +722,7 @@ body::after{
 .neg-result.partial{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);color:#f59e0b;}
 
 /* MATCH WATCH DOTS */
-.mo-watch{width:100%;height:170px;background:linear-gradient(180deg,#0d3d1a,#0a2e14);border-radius:12px;position:relative;overflow:hidden;margin-bottom:10px;box-shadow:inset 0 0 30px rgba(0,0,0,.4);}
-.mo-watch.hockey-rink{background:linear-gradient(180deg,#dde9f3 0%,#c6d8eb 100%);box-shadow:inset 0 0 20px rgba(59,130,246,.15);}
-.mo-watch-pitch{position:absolute;inset:6px;border:1px solid rgba(255,255,255,.08);border-radius:8px;}
-.mo-watch-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:32px;height:32px;border:1px solid rgba(255,255,255,.08);border-radius:50%;}
-.mo-watch-line-v{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(255,255,255,.06);}
-.mo-watch-line-h{position:absolute;top:50%;left:0;right:0;height:1px;background:rgba(255,255,255,.06);}
-.mo-dot{position:absolute;width:14px;height:14px;border-radius:50%;font-size:7px;font-weight:700;display:flex;align-items:center;justify-content:center;color:#fff;transition:left .55s cubic-bezier(.34,1.4,.64,1),top .55s cubic-bezier(.34,1.4,.64,1);box-shadow:0 2px 5px rgba(0,0,0,.5);z-index:3;}
-.mo-dot.home{background:linear-gradient(135deg,#22d4a3,#0fb074);border:1.5px solid #fff;}
-.mo-dot.away{background:linear-gradient(135deg,#f87878,#dc2828);border:1.5px solid #fff;}
-.mo-dot.ball{background:radial-gradient(circle,#fff,#f59e0b);width:11px;height:11px;border:1.5px solid #f59e0b;box-shadow:0 0 14px rgba(255,200,50,.95),0 0 4px #fff;z-index:5;}
-.mo-dot.gk{background:linear-gradient(135deg,#fbbf24,#d97706);border:2px solid #fff;width:16px;height:16px;}
-.mo-dot.gk.away{background:linear-gradient(135deg,#a855f7,#7c3aed);}
-.mo-watch-glow{position:absolute;inset:0;pointer-events:none;z-index:6;background:radial-gradient(circle at 50% 50%,transparent 60%,rgba(0,0,0,.25));}
+/* старые стили поля удалены — теперь используется .scoreboard-frame */
 
 /* DELETE CLUB */
 .danger-zone{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:12px;padding:14px;margin-top:14px;}
@@ -785,6 +779,88 @@ body::after{
 .advisor-msg{font-size:13px;line-height:1.45;color:#f1f5f9;font-style:italic;position:relative;z-index:1;}
 .advisor-msg::before{content:'«';color:#f59e0b;font-size:18px;font-weight:800;}
 .advisor-msg::after{content:'»';color:#f59e0b;font-size:18px;font-weight:800;}
+
+/* ─── ТАБЛО МАТЧА (вместо игрового поля) ─── */
+.mo-watch{
+  width:100%;
+  background:linear-gradient(180deg,#0a0e16 0%,#0c1424 100%);
+  border-radius:14px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:10px;
+  border:2px solid rgba(245,158,11,.3);
+  box-shadow:0 0 40px rgba(245,158,11,.18),inset 0 0 30px rgba(0,0,0,.5);
+  padding:12px 14px 14px;
+}
+.scoreboard-frame{position:relative;}
+.sb-period-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.sb-period{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;color:#f59e0b;text-transform:uppercase;}
+.sb-clock{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#22d4a3;letter-spacing:2px;background:rgba(0,0,0,.5);padding:2px 9px;border-radius:5px;border:1px solid rgba(34,212,163,.3);}
+.sb-clock.urgent{color:#ef4444;animation:clockBlink .8s infinite;border-color:rgba(239,68,68,.5);}
+@keyframes clockBlink{0%,49%{opacity:1}50%,100%{opacity:.55}}
+.sb-main{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:6px 0 10px;}
+.sb-team{text-align:center;}
+.sb-team-emo{font-size:34px;line-height:1;margin-bottom:2px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.7));}
+.sb-team-nm{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:#e2e8f0;line-height:1.1;text-transform:uppercase;}
+.sb-team-nm.lead{color:#22d4a3;text-shadow:0 0 12px rgba(34,212,163,.6);}
+.sb-vs-block{display:flex;align-items:center;gap:6px;padding:0 5px;}
+.sb-score-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:42px;
+  line-height:1;
+  letter-spacing:1px;
+  color:#fff;
+  text-shadow:0 0 18px rgba(245,158,11,.5),0 2px 4px rgba(0,0,0,.6);
+  min-width:36px;
+  text-align:center;
+  transition:transform .25s,color .25s;
+}
+.sb-score-num.flash{animation:scoreFlash .9s;}
+@keyframes scoreFlash{0%{transform:scale(1.4);color:#f59e0b}40%{transform:scale(1.1)}100%{transform:scale(1);color:#fff}}
+.sb-score-sep{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#64748b;line-height:1;}
+.sb-progress{height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden;margin-bottom:8px;}
+.sb-progress-fill{height:100%;background:linear-gradient(90deg,#22d4a3,#f59e0b);border-radius:2px;transition:width .3s;}
+.sb-action{
+  background:rgba(245,158,11,.08);
+  border:1px solid rgba(245,158,11,.25);
+  border-radius:9px;
+  padding:7px 11px;
+  font-size:12px;
+  font-weight:600;
+  color:#fef3c7;
+  text-align:center;
+  min-height:28px;
+  transition:.2s;
+  letter-spacing:.3px;
+}
+.sb-action.hot{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.45);color:#fca5a5;animation:actionPulse 1s;}
+.sb-action.score{background:rgba(34,212,163,.15);border-color:rgba(34,212,163,.5);color:#22d4a3;animation:actionPulse .8s;}
+@keyframes actionPulse{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+.sb-stats-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px;}
+.sb-stat{background:rgba(255,255,255,.03);border-radius:7px;padding:5px 7px;text-align:center;border:1px solid rgba(255,255,255,.05);}
+.sb-stat-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.5px;}
+.sb-stat-val{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#cbd5e1;margin-top:1px;}
+.sb-stat-val.h{color:#22d4a3;}
+.sb-stat-val.a{color:#f87878;}
+.sb-momentum-bar{margin-top:8px;height:6px;border-radius:3px;background:linear-gradient(90deg,#f87878 0%,#f87878 50%,#22d4a3 50%,#22d4a3 100%);overflow:hidden;position:relative;}
+.sb-momentum-marker{position:absolute;top:-4px;width:14px;height:14px;background:#fff;border-radius:50%;border:2px solid #f59e0b;box-shadow:0 0 10px rgba(245,158,11,.7);transition:left .4s ease;transform:translateX(-50%);}
+
+/* ─── БУЛЛИТЫ / ПЕНАЛЬТИ ─── */
+.shootout-overlay-bg{position:fixed;inset:0;z-index:99998;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:18px;animation:fadeIn .3s;}
+.shootout-modal{width:100%;max-width:420px;background:linear-gradient(180deg,#1c2030,#15171c);border:1.5px solid rgba(245,158,11,.5);border-radius:18px;padding:22px 18px 24px;box-shadow:0 8px 50px rgba(245,158,11,.25);}
+.shootout-emoji{font-size:54px;text-align:center;margin-bottom:6px;animation:lrPulse 1.5s ease-in-out infinite;}
+.shootout-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:3px;text-align:center;color:#f59e0b;margin-bottom:3px;}
+.shootout-sub{font-size:12px;color:#cbd5e1;text-align:center;margin-bottom:16px;}
+.shootout-pick-label{font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px;}
+.shootout-pickers{display:flex;flex-direction:column;gap:7px;max-height:50vh;overflow-y:auto;}
+.shootout-pick-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:11px;padding:10px 12px;display:flex;align-items:center;gap:11px;cursor:pointer;transition:.15s;}
+.shootout-pick-card:active{transform:scale(.98);background:rgba(245,158,11,.10);border-color:rgba(245,158,11,.4);}
+.shootout-pick-name{flex:1;font-size:14px;font-weight:700;color:#f1f5f9;}
+.shootout-pick-meta{font-size:10px;color:#94a3b8;}
+.shootout-pick-rat{font-family:'Bebas Neue',sans-serif;font-size:24px;line-height:1;padding:3px 10px;border-radius:6px;background:rgba(255,255,255,.05);}
+.shootout-pick-rat.rat-top{color:#16c784;background:rgba(22,199,132,.12);}
+.shootout-pick-rat.rat-mid{color:#f59e0b;background:rgba(245,158,11,.12);}
+.shootout-pick-rat.rat-low{color:#94a3b8;}
 
 </style>
 </head>
@@ -919,7 +995,7 @@ body::after{
 <div id="screen-squad" class="screen">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
     <div class="sec-title" style="margin-bottom:0"><span class="sec-dot"></span><span class="sec-lbl">Состав</span></div>
-    <select id="tactic-select" class="fselect" style="width:auto;font-size:12px;padding:6px 10px;" onchange="changeTactic(this.value)">
+    <select id="tactic-select" class="fselect" style="width:auto;font-size:12px;padding:6px 10px;display:none;" onchange="changeTactic(this.value)">
       <option value="442">4-4-2</option><option value="433">4-3-3</option>
       <option value="532">5-3-2</option><option value="352">3-5-2</option><option value="541">5-4-1</option>
     </select>
@@ -1054,9 +1130,9 @@ body::after{
   </div>
   <div class="mo-log" id="mo-log"></div>
   <div class="mo-stats-row" id="mo-stats-row" style="display:none">
-    <div class="mo-stat-box"><div class="msv" id="ms-shots">0</div><div class="msl">Удары</div></div>
-    <div class="mo-stat-box"><div class="msv" id="ms-poss">0%</div><div class="msl">Владение</div></div>
-    <div class="mo-stat-box"><div class="msv" id="ms-corners">0</div><div class="msl">Угловые</div></div>
+    <div class="mo-stat-box"><div class="msv" id="ms-shots">0</div><div class="msl" id="ms-shots-lbl">Удары</div></div>
+    <div class="mo-stat-box"><div class="msv" id="ms-poss">0%</div><div class="msl" id="ms-poss-lbl">Владение</div></div>
+    <div class="mo-stat-box"><div class="msv" id="ms-corners">0</div><div class="msl" id="ms-corners-lbl">Угловые</div></div>
   </div>
   <button class="btn-dismiss2" id="btn-dismiss" onclick="dismissMatch()">✅ Продолжить</button>
 </div>
@@ -1142,6 +1218,16 @@ const TIERS = {
     {name:'КХЛ — средний уровень',league:'КХЛ Элита',maxBudget:15000000,oppRange:[74,85],income:120000,salaryMult:12,promAt:2,teams:14},
     {name:'КХЛ — топ',league:'КХЛ Плей-офф',maxBudget:50000000,oppRange:[82,92],income:300000,salaryMult:22,promAt:1,teams:16},
     {name:'Мировой уровень',league:'Международный Кубок',maxBudget:150000000,oppRange:[90,99],income:1000000,salaryMult:40,promAt:1,teams:16},
+  ],
+  basketball:[
+    {name:'Студенческая лига',league:'Студенческий баскет',maxBudget:30000,oppRange:[22,38],income:700,salaryMult:1,promAt:2,teams:8},
+    {name:'Любительский клуб',league:'Городская лига',maxBudget:90000,oppRange:[32,48],income:1600,salaryMult:1.2,promAt:2,teams:10},
+    {name:'Региональная лига',league:'Региональная лига',maxBudget:250000,oppRange:[42,56],income:4000,salaryMult:1.6,promAt:2,teams:10},
+    {name:'Суперлига Б',league:'Суперлига Б',maxBudget:700000,oppRange:[52,65],income:11000,salaryMult:2.5,promAt:2,teams:12},
+    {name:'Суперлига А',league:'Суперлига А',maxBudget:2500000,oppRange:[63,75],income:30000,salaryMult:5,promAt:2,teams:12},
+    {name:'Единая лига ВТБ',league:'Лига ВТБ',maxBudget:10000000,oppRange:[72,83],income:90000,salaryMult:10,promAt:2,teams:14},
+    {name:'Топ Европы',league:'Евролига',maxBudget:40000000,oppRange:[81,91],income:250000,salaryMult:20,promAt:1,teams:16},
+    {name:'НБА уровень',league:'Международный кубок',maxBudget:120000000,oppRange:[89,98],income:700000,salaryMult:35,promAt:1,teams:16},
   ]
 };
 
@@ -1251,7 +1337,16 @@ const EVENTS_POOL = [
   ]},
   // ── НОВЫЕ СОБЫТИЯ v3 ──
   {ico:'🌟',title:'Вундеркинд пришёл сам',body:'17-летний парень с окраины пришёл на просмотр без агента. Говорит — рождён для спорта.',choices:[
-    {txt:'Взять бесплатно',ico:'✅',cb:g=>{g.players.push({name:'Юный Талант',pos:g.sport==='football'?'att':'fw',rating:63,energy:100,morale:95,form:85,salary:500,contract:3,injured:false,injuryTurns:0,isYouth:true,age:17});return '🌟 Вундеркинд в составе! Смотрим как раскроется.';},cls:'ec-green'},
+    {txt:'Взять бесплатно',ico:'✅',cb:g=>{
+      // Корректные позиции по виду спорта
+      let pos;
+      if(g.sport==='football')pos=['st','cm','lw','rw'][rnd(0,3)];
+      else if(g.sport==='hockey')pos=['LW','C','RW'][rnd(0,2)];
+      else if(g.sport==='basketball')pos=['SG','SF','PG'][rnd(0,2)];
+      else pos='att';
+      g.players.push({id:Math.random().toString(36).slice(2,9),name:'Ю.Талант',pos:pos,rating:63,energy:100,morale:95,form:85,salary:500,contract:3,contractSeasons:3,injured:false,injuryTurns:0,isYouth:true,age:17,potential:rnd(78,90),goals:0,assists:0});
+      return '🌟 Вундеркинд в составе! Смотрим как раскроется.';
+    },cls:'ec-green'},
     {txt:'Нет места сейчас',ico:'❌',cb:g=>{return 'Парень ушёл. Возможно зря...';},cls:'ec-red'},
   ]},
   {ico:'📱',title:'Ролик с тренировки вирусный',body:'Видео набрало 2 млн просмотров. Бренды уже пишут в директ.',choices:[
@@ -1386,8 +1481,10 @@ const fmt = n => {
 const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
 const rndName=(sport)=>{const a=sport==='football'?NAMES_F:NAMES_H;return a[rnd(0,a.length-1)];}
-const rndEmoji=(sport)=>{const a=sport==='football'?EMOJIS_F:EMOJIS_H;return a[rnd(0,a.length-1)];}
-const rndTeamName=(sport)=>{const a=sport==='football'?TEAM_NAMES_F:TEAM_NAMES_H;return a[rnd(0,a.length-1)];}
+const EMOJIS_B=['🏀','🦅','🦁','⚡','🔥','🌟','💎','🐯','🦈','👑','🚀','💥','🦊','🐺','🏆'];
+const rndEmoji=(sport)=>{const a=sport==='football'?EMOJIS_F:sport==='basketball'?EMOJIS_B:EMOJIS_H;return a[rnd(0,a.length-1)];}
+const TEAM_NAMES_B=['Локомотив Б','Спартак Б','ЦСКА Б','Зенит Б','Динамо Б','Химки','УНИКС','Автодор','Парма','Тамбов','Нижний Б','Урал Б'];
+const rndTeamName=(sport)=>{const a=sport==='football'?TEAM_NAMES_F:sport==='basketball'?TEAM_NAMES_B:TEAM_NAMES_H;return a[rnd(0,a.length-1)];}
 const ratColor=r=>r>=70?'rat-top':r>=50?'rat-mid':'rat-low';
 
 // ── SAVE/LOAD ──
@@ -1465,14 +1562,18 @@ function genSquad(){
   if(selSportVal==='football'){
     // Футбол: 18 игроков (11 основа + 7 запас)
     tPos=['GK','GK','LB','CB','CB','CB','RB','LM','CM','CM','CM','CAM','RM','LW','LW','ST','ST','RW'];
+  } else if(selSportVal==='basketball'){
+    // Баскет: 10 игроков — 5 основа + 5 запас
+    tPos=['PG','PG','SG','SG','SF','SF','PF','PF','C','C'];
   } else {
     // Хоккей: 22 игрока — 2 врат + 8 защ + 12 нап (4 звена + резерв)
     tPos=['GK','GK',
           'LD','LD','LD','LD','RD','RD','RD','RD',
           'LW','LW','LW','LW','C','C','C','C','RW','RW','RW','RW'];
   }
+  const BBALL_NAMES=['Д.Данкс','К.Хуп','Р.Дрибб','С.Пас','Б.Защ','Т.Трой','А.Слэм','В.Трипл','Г.Фол','П.Тайм','О.Леев','Ю.Цент','Н.Форв','М.Пойнт','Е.Шутер'];
   return tPos.map(pos=>{
-    const names=selSportVal==='football'?NAMES_F:NAMES_H;
+    const names=selSportVal==='football'?NAMES_F:selSportVal==='basketball'?BBALL_NAMES:NAMES_H;
     return {
       id:Math.random().toString(36).slice(2,9),
       name:names[rnd(0,names.length-1)],
@@ -1513,20 +1614,22 @@ function genMarket(tier){
     };
   });
 }
-function genTable(tier){
+function genTable(tier, preSimulate){
   const cfg=TIERS[G.sport][Math.min(tier,7)];
-  const tNm=G.sport==='football'?TEAM_NAMES_F:TEAM_NAMES_H;
+  const tNm=G.sport==='football'?TEAM_NAMES_F:G.sport==='basketball'?['Локомотив Б','Спартак Б','ЦСКА Б','Зенит Б','Динамо Б','Химки','УНИКС','Автодор','Парма','Тамбов','Нижний Б','Урал Б']:TEAM_NAMES_H;
   const pool=[...tNm].sort(()=>Math.random()-.5).slice(0,cfg.teams-1);
   const rows=pool.map(nm=>({
     name:nm,emoji:rndEmoji(G.sport),isMe:false,
     rating:rnd(cfg.oppRange[0],cfg.oppRange[1]),
     P:0,W:0,D:0,L:0,GF:0,GA:0,pts:0,
   }));
-  // Simulate some played games for opponents
-  rows.forEach(t=>{
-    const g=rnd(2,5);t.W=g;t.D=rnd(0,2);t.L=rnd(0,2);
-    t.P=t.W+t.D+t.L;t.GF=t.W*2+rnd(0,4);t.GA=t.L*2+rnd(0,3);t.pts=t.W*3+t.D;
-  });
+  // Pre-simulate only on very first career start (not new seasons)
+  if(preSimulate){
+    rows.forEach(t=>{
+      const g=rnd(2,5);t.W=g;t.D=rnd(0,2);t.L=rnd(0,2);
+      t.P=t.W+t.D+t.L;t.GF=t.W*2+rnd(0,4);t.GA=t.L*2+rnd(0,3);t.pts=t.W*3+t.D;
+    });
+  }
   rows.push({
     name:G.clubName,emoji:G.clubEmoji,isMe:true,
     rating:Math.round(avgRat()),
@@ -1555,7 +1658,7 @@ function createClub(){
     injuryPenalty:0,
   };
   G.players=genSquad();
-  G.table=genTable(0);
+  G.table=genTable(0, true);
   marketPool=genMarket(0);
   save();
   const su = document.getElementById('screen-setup');
@@ -1668,12 +1771,14 @@ function renderEventsTicker(){
 // ── SQUAD RENDER ──
 function renderSquad(){
   const isFoot=G.sport==='football';
-  document.getElementById('pitch-view').style.display=isFoot?'block':'none';
-  document.getElementById('hockey-lines').style.display=isFoot?'none':'block';
-  if(document.getElementById('tactic-select').value!==G.tactic){
-    document.getElementById('tactic-select').value=G.tactic;
-  }
-  if(isFoot)renderPitch();else renderHockeyLines();
+  const isBball=G.sport==='basketball';
+  document.getElementById('pitch-view').style.display=(isFoot||isBball)?'block':'none';
+  document.getElementById('hockey-lines').style.display=(isFoot||isBball)?'none':'block';
+  // Схемы только для футбола
+  const tacSel=document.getElementById('tactic-select');
+  if(tacSel) tacSel.style.display=isFoot?'block':'none';
+  if(isFoot && tacSel && tacSel.value!==G.tactic) tacSel.value=G.tactic;
+  if(isFoot)renderPitch();else if(isBball)renderBasketballCourt();else renderHockeyLines();
   renderSquadList();
 }
 
@@ -1881,7 +1986,7 @@ function renderHockeyLines(){
 function renderSquadList(){
   // Sort players by rating desc before rendering
   G.players.sort(function(a,b){return (b.rating||0)-(a.rating||0);});
-  const positions=G.sport==='football'?['GK','LB','CB','RB','LM','CM','CAM','RM','LW','ST','RW']:['GK','LD','RD','LW','C','RW'];
+  const positions=G.sport==='football'?['GK','LB','CB','RB','LM','CM','CAM','RM','LW','ST','RW']:G.sport==='basketball'?['PG','SG','SF','PF','C']:['GK','LD','RD','LW','C','RW'];
   const groups={};
   positions.forEach(p=>groups[p]=[]);
   G.players.forEach(p=>{
@@ -1954,7 +2059,7 @@ function closeModal(id){document.getElementById(id).classList.remove('on');}
 function changePos(id){
   const p=G.players.find(x=>x.id===id);
   if(!p)return;
-  const allPos=G.sport==='football'?['GK','LB','CB','RB','CM','CAM','LW','ST','RW']:['GK','LD','RD','LW','C','RW'];
+  const allPos=G.sport==='football'?['GK','LB','CB','RB','CM','CAM','LW','ST','RW']:G.sport==='basketball'?['PG','SG','SF','PF','C']:['GK','LD','RD','LW','C','RW'];
   const cur=allPos.indexOf(p.pos);
   p.pos=allPos[(cur+1)%allPos.length];
   save();renderSquad();toast('Позиция изменена: '+p.name+' → '+(POS_LABEL[p.pos]||p.pos));
@@ -2478,31 +2583,83 @@ function playPeriod(periodNum, totalPeriods, perPeriod, totalDuration, state, cf
 
   // Генерируем события на этот период
   const trainBonus=Math.min(0.025,(G.trainCount||0)*0.003);
-  const goalChance=0.09+(lockerBonus.atk*0.2)+trainBonus;
   const periodStartMin=(periodNum-1)*perPeriod;
   const periodEndMin=periodNum===totalPeriods?totalDuration:periodNum*perPeriod;
+  const isBasketball=G.sport==='basketball';
+  const isHockey=G.sport==='hockey';
+
+  // Шанс события зависит от спорта
+  // Баскет: много очков (50-110 счёт), хоккей средне, футбол низко
+  let baseEventChance;
+  if(isBasketball)baseEventChance=0.55+lockerBonus.atk*0.2+trainBonus; // ~22 атак за 40 мин = ~3-4 очка/мин
+  else if(isHockey)baseEventChance=0.13+lockerBonus.atk*0.2+trainBonus;
+  else baseEventChance=0.09+lockerBonus.atk*0.2+trainBonus;
 
   // ВАЖНО: НЕ инкрементим счёт здесь. Только генерим события.
   for(let min=periodStartMin+1;min<=periodEndMin;min++){
-    if(Math.random()<goalChance){
+    if(Math.random()<baseEventChance){
       const trainEdge=Math.min(0.12,(G.trainCount||0)*0.01);
       const myAttacks=Math.random()<(myAtk/(myAtk+oppDef+0.1)+trainEdge);
-      if(myAttacks){
-        const scorer=G.players.filter(p=>!p.injured)[Math.floor(Math.random()*G.players.filter(p=>!p.injured).length)];
-        if(scorer){
-          state.events.push({min,type:'goal',home:true,name:scorer.name.split(' ')[1]||scorer.name,scorerId:scorer.id});
+
+      if(isBasketball){
+        // Баскет: бросок может быть успешным (2 или 3 очка) или мимо.
+        // Вероятности: 60% попал → из них 75% обычный 2-очковый, 25% дальний 3-очковый
+        const made=Math.random()<0.55;
+        if(made){
+          const isThree=Math.random()<0.28;
+          const points=isThree?3:2;
+          if(myAttacks){
+            const scorer=G.players.filter(p=>!p.injured)[Math.floor(Math.random()*Math.max(1,G.players.filter(p=>!p.injured).length))];
+            if(scorer){
+              state.events.push({min,type:'goal',home:true,name:scorer.name.split(' ')[1]||scorer.name,scorerId:scorer.id,points,isThree});
+            }
+          } else {
+            state.events.push({min,type:'goal',home:false,name:matchOppName.slice(0,6),points,isThree});
+          }
+        } else {
+          // Промах — отметка для статистики
+          if(Math.random()<0.3){
+            state.events.push({min,type:'miss',home:myAttacks,name:myAttacks?'наш':matchOppName.slice(0,6)});
+          }
         }
       } else {
-        state.events.push({min,type:'goal',home:false,name:matchOppName.slice(0,6)});
+        // Футбол/хоккей: гол = 1 очко
+        if(myAttacks){
+          const scorer=G.players.filter(p=>!p.injured)[Math.floor(Math.random()*Math.max(1,G.players.filter(p=>!p.injured).length))];
+          if(scorer){
+            state.events.push({min,type:'goal',home:true,name:scorer.name.split(' ')[1]||scorer.name,scorerId:scorer.id,points:1});
+          }
+        } else {
+          state.events.push({min,type:'goal',home:false,name:matchOppName.slice(0,6),points:1});
+        }
       }
     }
+    // Желтая карточка / штраф
     if(Math.random()<0.04){
       const p=G.players.filter(pl=>!pl.injured)[rnd(0,G.players.filter(pl=>!pl.injured).length-1)];
       if(p)state.events.push({min,type:'yellow',home:true,name:p.name.split(' ')[1]||p.name});
     }
+    // Удаление (хоккей чаще)
+    if(Math.random()<(isHockey?0.025:0.008)){
+      const p=G.players.filter(pl=>!pl.injured)[rnd(0,G.players.filter(pl=>!pl.injured).length-1)];
+      if(p)state.events.push({min,type:'red',home:Math.random()<0.5,name:p.name.split(' ')[1]||p.name,penaltyId:p.id});
+    }
+    // Травма
     if(Math.random()<0.008){
       const p=G.players.filter(pl=>!pl.injured)[rnd(0,G.players.filter(pl=>!pl.injured).length-1)];
       if(p)state.events.push({min,type:'injury',home:true,name:p.name.split(' ')[1]||p.name,injuredId:p.id});
+    }
+  }
+
+  // ── ДРАМАТИЧНЫЙ КАМБЭК — последняя минута: подкорректируем баланс
+  // Если разница большая — возможен поздний "рывок" в любую сторону для интриги
+  if(periodNum===totalPeriods){
+    const lateGoals=Math.floor(periodEndMin*0.85);
+    if(state.hG-state.aG<-2 && Math.random()<0.4){
+      // Камбэк дома — добавим ~2 поздних гола
+      const cgPoints=isBasketball?3:1;
+      state.events.push({min:lateGoals,type:'goal',home:true,name:'КАМБЭК',scorerId:null,points:cgPoints,isThree:isBasketball});
+      if(Math.random()<0.5)state.events.push({min:lateGoals+2,type:'goal',home:true,name:'КАМБЭК',scorerId:null,points:cgPoints,isThree:false});
     }
   }
 
@@ -2518,9 +2675,11 @@ function playPeriod(periodNum, totalPeriods, perPeriod, totalDuration, state, cf
   if(!state._shown)state._shown=new Set();
   const applied=state._applied, shown=state._shown;
 
-  // Период идёт ~45 реальных секунд
-  // Каждые 1.5 сек = 1 игровая минута (30 минут за период * 1.5 = 45 сек)
-  const MS_PER_MIN = Math.round(45000 / (periodEndMin - periodStartMin));
+  // Период идёт: футбол ~45сек/тайм, хоккей ~40сек/период, баскет ~30сек/четверть
+  // Каждый шаг = MS_PER_STEP мс
+  const periodLen = periodEndMin - periodStartMin;
+  const targetSec = G.sport==='football' ? 45 : G.sport==='basketball' ? 30 : 40;
+  const MS_PER_STEP = Math.round((targetSec * 1000) / Math.max(STEPS, 1));
   const tick=setInterval(()=>{
     step++;
     const localPct=step/STEPS;
@@ -2538,52 +2697,182 @@ function playPeriod(periodNum, totalPeriods, perPeriod, totalDuration, state, cf
       if(ev.min<=minute && !applied.has(k)){
         applied.add(k);
         if(ev.type==='goal'){
+          const pts=ev.points||1;
           if(ev.home){
-            state.hG++;state.shots++;
+            state.hG+=pts;state.shots++;
             if(ev.scorerId){const sc=G.players.find(p=>p.id===ev.scorerId);if(sc)sc.goals=(sc.goals||0)+1;}
           } else {
-            state.aG++;state.oppShots++;
+            state.aG+=pts;state.oppShots++;
           }
         } else if(ev.type==='injury' && ev.injuredId){
           const p=G.players.find(x=>x.id===ev.injuredId);
           if(p && !p.injured){p.injured=true;p.injuryTurns=rnd(1,3);}
+        } else if(ev.type==='red' && ev.penaltyId && ev.home){
+          // Удаление — снижает шанс гола в этом периоде (через lockerBonus отрицательный временно)
+          // Применим простое: слегка увеличим шанс пропустить
+          state.aG+=Math.random()<0.18?1:0; // дополнительный гол в большинстве
         }
       }
     });
+    // ── Обновляем табло ──
     document.getElementById('mo-score').textContent=state.hG+':'+state.aG;
+    if(typeof updateScoreboard==='function'){
+      const sport=G.sport;
+      const pLabel=sport==='hockey'?(periodNum+'-й период'):sport==='basketball'?(periodNum+'-я четверть'):(periodNum+'-й тайм');
+      const moment=Math.max(-1,Math.min(1,(state.aG-state.hG)/Math.max(3,state.hG+state.aG)));
+      updateScoreboard({homeScore:state.hG,awayScore:state.aG,minute:minute,period:pLabel,progress:pct,momentum:moment,statHomeAttacks:state.shots,statAwayAttacks:state.oppShots});
+    }
 
-    // Лог событий — нарратив
+    // Лог событий — нарратив (зависит от спорта и от очков!)
     const log=document.getElementById('mo-log');
     state.events.forEach((ev,i)=>{
       const k=ev.min+'_'+ev.type+'_'+ev.name+'_'+(ev.home?'h':'a')+'_'+i;
       if(ev.min<=minute && !shown.has(k)){
         shown.add(k);
-        // Генерируем нарративное описание события
-        const narratives=ev.type==='goal'&&ev.home ? [
-          `🔵 ${ev.name} получает мяч, обходит защитника... <b>УДАР!</b> ⚽ <b style="color:#16c784">ГО-О-ОЛ!</b>`,
-          `🔵 Контратака! ${ev.name} врывается в штрафную — <b>ГООООЛ!</b> ⚽`,
-          `🔵 Пас в касание, ${ev.name} без шансов для вратаря — <b>ГОЛ!</b> ⚽`,
-          `🔵 ${ev.name} с угла штрафной бьёт — <b>ГОЛ! Красота!</b> ⚽`,
-        ] : ev.type==='goal'&&!ev.home ? [
-          `🔴 Потеря мяча... контратака соперника — <b style="color:#ef4444">Гол. Пропустили.</b> 😞`,
-          `🔴 Удар из-за штрафной застаёт врасплох — <b style="color:#ef4444">0:1 в нашу сторону.</b>`,
-          `🔴 Плохая игра защиты — соперник не простил. <b style="color:#ef4444">Пропустили!</b>`,
-        ] : ev.type==='yellow' ? [
-          `🟨 ${ev.name} — грубый фол. Жёлтая карточка.`,
-          `🟨 Судья останавливает игру: ${ev.name} — предупреждение.`,
-        ] : ev.type==='injury' ? [
-          `🏥 ${ev.name} остаётся на газоне! Медики выходят на поле...`,
-          `🏥 Травма: ${ev.name} просит замену. Потеря для команды.`,
-        ] : [`⚡ ${ev.min}' — событие в игре.`];
-        // Добавляем промежуточный флайр перед событием
-        const preNarr=ev.type==='goal'&&ev.home?[
-          `Отбор мяча, быстрый пас вперёд... ${ev.name} один на один с вратарём!`,
-          `Навес в штрафную... борьба... мяч у ${ev.name}!`,
-          `Прессинг сработал! Потеря соперника, ${ev.name} убегает!`,
-        ]:ev.type==='goal'&&!ev.home?[
-          `Соперник получает мяч в центре поля... ускорение...`,
-          `Угловой у соперника... навес в штрафную...`,
-        ]:[];
+        const isBball=G.sport==='basketball';
+        const isHockey=G.sport==='hockey';
+        const points=ev.points||1;
+        const isThree=ev.isThree;
+
+        // ── НАРРАТИВ ГОЛА — зависит от того сколько очков ──
+        let narratives=[];
+        if(ev.type==='goal' && ev.home){
+          if(isBball){
+            if(isThree){
+              // Трёхочковый — драматичные сценарии
+              narratives=[
+                `🔵 ${ev.name} оторвался от защитника... бросок из-за дуги... <b style="color:#16c784">🎯 ТРИ-ОЧ-КО-ВЫЙ! +3!</b>`,
+                `🔵 За 1 секунду до сирены ${ev.name} стреляет... 🌀 <b style="color:#16c784">ПОПАЛ! 3 ОЧКА!</b>`,
+                `🔵 Пик-н-ролл, ${ev.name} свободен на дуге... <b style="color:#16c784">🏹 ИЗ-ЗА ДУГИ — ТРОЙКА!</b>`,
+                `🔵 ${ev.name} из глубины... <b style="color:#16c784">СТРАЙК! 💎 +3 ОЧКА!</b>`,
+              ];
+            } else {
+              // Двухочковый — драйв, лэйап, данк
+              narratives=[
+                `🔵 ${ev.name} врывается к кольцу... <b style="color:#16c784">💥 ДА-А-АНК! +2!</b>`,
+                `🔵 Быстрый прорыв, ${ev.name} один на один с защитником — <b style="color:#16c784">🏀 LAYUP! 2 ОЧКА!</b>`,
+                `🔵 Обводка, бросок в кольцо — <b style="color:#16c784">МЯЧ В КОРЗИНЕ! +2!</b>`,
+                `🔵 ${ev.name} спина к кольцу, разворот, бросок... <b style="color:#16c784">ИДЕАЛЬНО! +2!</b>`,
+                `🔵 Подбор и сразу обратно в кольцо — <b style="color:#16c784">PUTBACK! +2!</b>`,
+              ];
+            }
+          } else if(isHockey){
+            // Хоккей — буря в голосе комментатора
+            narratives=[
+              `🔵 ${ev.name} один на один с вратарём... финт... <b style="color:#16c784">🚨 ШАЙ-БУ! ГО-О-ОЛ! 🥅</b>`,
+              `🔵 Бросок ${ev.name} от синей линии! Шайба в воротах — <b style="color:#16c784">🚨 ГООООЛ!</b>`,
+              `🔵 Перехват в средней зоне, прорыв 2 в 1, ${ev.name} в касание — <b style="color:#16c784">ШАЙБА В СЕТКЕ! 🚨</b>`,
+              `🔵 Подбор у борта, выход 1 в 0, ${ev.name} закидывает <b style="color:#16c784">ВЕРХ! ГОООЛ! 🚨</b>`,
+              `🔵 Кистевой бросок ${ev.name} в дальний угол — <b style="color:#16c784">ВРАТАРЬ БЕЗ ШАНСОВ! 🚨 ГОЛ!</b>`,
+            ];
+          } else {
+            // Футбол — ГОООООЛ
+            narratives=[
+              `🔵 ${ev.name} получает мяч... обводит защитника... ещё одного... <b style="color:#16c784">⚡ УДАР! ГО-О-ОООЛ!</b> ⚽`,
+              `🔵 Длинный пас вразрез! ${ev.name} один на один с вратарём... <b style="color:#16c784">ОБВОДИТ ВРАТАРЯ — ГОООООЛ!</b> ⚽`,
+              `🔵 Подача с углового, борьба в штрафной, ${ev.name} <b style="color:#16c784">ГОЛОВОЙ В СЕТКУ! ГОООЛ!</b> ⚽`,
+              `🔵 Дальний удар ${ev.name} с 25 метров... мяч летит в девятку — <b style="color:#16c784">ГОЛЛЛЛЛ! 💥</b>`,
+              `🔵 ${ev.name} разрезающий пас — выходит 1 на 1... вратарь бросается... <b style="color:#16c784">ПЕРЕБРОСИЛ ЕГО! ГООООЛ!</b> ⚽`,
+              `🔵 Контратака! ${ev.name} в касание ловит мяч — <b style="color:#16c784">УДАР В ПУСТЫЕ ВОРОТА — ГОЛ!</b> ⚽`,
+            ];
+          }
+        } else if(ev.type==='goal' && !ev.home){
+          // Соперник забил
+          if(isBball){
+            if(isThree){
+              narratives=[
+                `🔴 Соперник из-за дуги... <b style="color:#ef4444">😱 ТРИ ОЧКА ПРОТИВ НАС!</b>`,
+                `🔴 Дальний бросок соперника — <b style="color:#ef4444">+3, мы в шоке.</b>`,
+              ];
+            } else {
+              narratives=[
+                `🔴 Соперник прорвался под кольцо — <b style="color:#ef4444">+2 не в нашу пользу 😞</b>`,
+                `🔴 Лэйап у соперника — <b style="color:#ef4444">пропустили 2 очка.</b>`,
+                `🔴 Подбор соперника и сразу обратно — <b style="color:#ef4444">досадные 2 очка.</b>`,
+              ];
+            }
+          } else if(isHockey){
+            narratives=[
+              `🔴 Соперник в нашу зону... бросок... <b style="color:#ef4444">🚨 ПРОПУСТИЛИ! Шайба в воротах. 😞</b>`,
+              `🔴 Потеря в средней зоне, контратака... <b style="color:#ef4444">ВРАТАРЬ НЕ ВЫРУЧИЛ. 1 ШАЙБА.</b>`,
+              `🔴 Бросок от синей — рикошет — <b style="color:#ef4444">🚨 ГОЛ В НАШИ ВОРОТА.</b>`,
+            ];
+          } else {
+            narratives=[
+              `🔴 Контратака соперника... удар в дальний угол — <b style="color:#ef4444">😞 ПРОПУСТИЛИ.</b>`,
+              `🔴 Стандартное положение — головой замыкают — <b style="color:#ef4444">ГОЛ В НАШИ ВОРОТА.</b>`,
+              `🔴 Плохая игра защиты — соперник не простил — <b style="color:#ef4444">😞 ОТСТАЁМ.</b>`,
+            ];
+          }
+        } else if(ev.type==='yellow'){
+          narratives=isBball?[
+            `🟨 ${ev.name} — фол, у соперника штрафные.`,
+          ]:[
+            `🟨 ${ev.name} — жёлтая карточка за грубость.`,
+          ];
+        } else if(ev.type==='red'){
+          narratives=[
+            `🟥 ${ev.name} — <b style="color:#ef4444">УДАЛЕНИЕ!</b> Команда в меньшинстве!`,
+            `🟥 Грубейшее нарушение, ${ev.name} идёт на скамейку штрафников!`,
+          ];
+        } else if(ev.type==='injury'){
+          narratives=[
+            `🏥 ${ev.name} травмирован... медики уже на поле.`,
+            `🏥 Травма у ${ev.name}! Замена.`,
+          ];
+        } else if(ev.type==='miss'){
+          narratives=ev.home?[`🔵 Бросок мимо — упустили момент.`]:[`🔴 Соперник промахнулся — повезло!`];
+        } else {
+          narratives=[`⚡ ${ev.min}' — событие в игре.`];
+        }
+
+        // ── ПРЕАМБУЛА — нагнетает интригу ──
+        let preNarr=[];
+        if(ev.type==='goal' && ev.home){
+          if(isHockey){
+            preNarr=[
+              `Атака нашей команды... шайба у синей линии...`,
+              `Передача в среднюю зону... ${ev.name} разгоняется...`,
+              `Перехват! ${ev.name} получает шайбу — выход в зону соперника!`,
+              `Силовая борьба у борта... мяч свободен... ${ev.name} подхватывает!`,
+              `2 в 1! Защитник один не успевает... пас на ${ev.name}...`,
+            ];
+          } else if(isBball){
+            preNarr=[
+              `Раскрутка атаки... ${ev.name} получает мяч на дуге...`,
+              `Пик-н-ролл... ${ev.name} остаётся свободен...`,
+              `Быстрый прорыв! ${ev.name} в отрыве...`,
+              `Изоляция, ${ev.name} один в один с защитником...`,
+            ];
+          } else {
+            preNarr=[
+              `Длинная передача от центра поля... ${ev.name} в забеге...`,
+              `Прессинг сработал! Перехват у нашей команды, ${ev.name} ускоряется...`,
+              `Стенка с партнёром, ${ev.name} прорывается в штрафную...`,
+              `Вынос мяча в свободную зону... ${ev.name} один на один с защитником...`,
+            ];
+          }
+        } else if(ev.type==='goal' && !ev.home){
+          if(isHockey){
+            preNarr=[
+              `Соперник входит в нашу зону...`,
+              `Потеря шайбы в средней зоне... опасный момент...`,
+              `Соперник давит — наша оборона трещит...`,
+            ];
+          } else if(isBball){
+            preNarr=[
+              `Соперник разыгрывает мяч...`,
+              `Быстрая контратака у соперника...`,
+            ];
+          } else {
+            preNarr=[
+              `Соперник идёт в атаку через центр...`,
+              `Угловой у наших ворот, опасная подача...`,
+              `Прострел вдоль ворот — мяч ищет адресата...`,
+            ];
+          }
+        }
+
         const divPre=document.createElement('div');
         divPre.className='mo-ev mo-ev-pre';
         if(preNarr.length){
@@ -2592,7 +2881,7 @@ function playPeriod(periodNum, totalPeriods, perPeriod, totalDuration, state, cf
         }
         const div=document.createElement('div');div.className='mo-ev mo-ev-key';
         const narr=narratives[rnd(0,narratives.length-1)];
-        const ico=ev.type==='goal'?'⚽':ev.type==='yellow'?'🟨':ev.type==='injury'?'🏥':'📌';
+        const ico=ev.type==='goal'?(isBball?'🏀':isHockey?'🏒':'⚽'):ev.type==='yellow'?'🟨':ev.type==='red'?'🟥':ev.type==='injury'?'🏥':'📌';
         div.innerHTML=`<span class="mo-ev-min">${ev.min}'</span><span class="mo-ev-ico">${ico}</span><span class="mo-ev-text">${narr}</span>`;
         log.appendChild(div);
         log.scrollTop=log.scrollHeight;
@@ -2615,8 +2904,9 @@ function playPeriod(periodNum, totalPeriods, perPeriod, totalDuration, state, cf
         if(ev.min<=periodEndMin && !applied.has(k)){
           applied.add(k);
           if(ev.type==='goal'){
-            if(ev.home){state.hG++;state.shots++;if(ev.scorerId){const sc=G.players.find(p=>p.id===ev.scorerId);if(sc)sc.goals=(sc.goals||0)+1;}}
-            else state.aG++;
+            const pts=ev.points||1;
+            if(ev.home){state.hG+=pts;state.shots++;if(ev.scorerId){const sc=G.players.find(p=>p.id===ev.scorerId);if(sc)sc.goals=(sc.goals||0)+1;}}
+            else state.aG+=pts;
           }
         }
       });
@@ -2626,14 +2916,18 @@ function playPeriod(periodNum, totalPeriods, perPeriod, totalDuration, state, cf
         showLockerRoom(periodNum, totalPeriods, perPeriod, totalDuration, state, cfg, myRat, oppRat);
       } else {
         document.getElementById('mo-stats-row').style.display='flex';
-        document.getElementById('ms-shots').textContent=state.shots+rnd(2,6);
+        const isBball=G.sport==='basketball';
+        document.getElementById('ms-shots-lbl').textContent=isBball?'Броски':'Удары';
+        document.getElementById('ms-poss-lbl').textContent=isBball?'Атаки':'Владение';
+        document.getElementById('ms-corners-lbl').textContent=isBball?'Фолы':'Угловые';
+        document.getElementById('ms-shots').textContent=isBball?state.shots*4+rnd(5,15):state.shots+rnd(2,6);
         const possession=clamp(Math.round(50+(myRat-oppRat)*1.5+lockerBonus.atk*30),25,75);
-        document.getElementById('ms-poss').textContent=possession+'%';
-        document.getElementById('ms-corners').textContent=rnd(2,10);
+        document.getElementById('ms-poss').textContent=isBball?rnd(30,80)+'%':possession+'%';
+        document.getElementById('ms-corners').textContent=isBball?rnd(8,30):rnd(2,10);
         finalizeMatch(state.hG,state.aG,possession);
       }
     }
-  },90);
+  },MS_PER_STEP);
 }
 
 // ── РАЗДЕВАЛКА — между периодами ───────────────────────
@@ -2885,10 +3179,14 @@ function continueAfterLocker(periodNum, totalPeriods, perPeriod, totalDuration, 
 }
 
 function finalizeMatch(h,a,poss){
-  const res=h>a?'W':h===a?'D':'L';
+  // Для баскетбола: каждый "гол" = 2 очка, добавляем базу
+  const isBball=G.sport==='basketball';
+  const dispH=isBball?h*2+rnd(20,35):h;
+  const dispA=isBball?a*2+rnd(20,35):a;
+  const res=dispH>dispA?'W':dispH===dispA?'D':'L';
   const pts=res==='W'?3:res==='D'?1:0;
   G.W+=res==='W'?1:0;G.D+=res==='D'?1:0;G.L+=res==='L'?1:0;
-  G.GF+=h;G.GA+=a;G.matchday++;
+  G.GF+=dispH;G.GA+=dispA;G.matchday++;
 
   const cfg=TIERS[G.sport][Math.min(G.tier,7)];
   const spInc=G.sponsors.reduce((s,sp)=>s+sp.pm,0);
@@ -2934,10 +3232,10 @@ function finalizeMatch(h,a,poss){
   });
   G.table.sort((a,b)=>b.pts-a.pts||(b.GF-b.GA)-(a.GF-a.GA));
 
-  G.results.unshift({h:G.clubName,a:matchOppName,hg:h,ag:a,res,pts});
+  G.results.unshift({h:G.clubName,a:matchOppName,hg:dispH,ag:dispA,res,pts});
   const newsIco=res==='W'?'🏆':res==='D'?'🤝':'😔';
   const newsType=res==='W'?'win':res==='D'?'draw':'loss';
-  addNews(newsIco,G.clubName+' '+h+':'+a+' '+matchOppName+' (Тур '+G.matchday+')',newsType);
+  addNews(newsIco,G.clubName+' '+dispH+':'+dispA+' '+matchOppName+' (Тур '+G.matchday+')',newsType);
   if(G.results.length>8)G.results.pop();
 
   const titles={W:'🎉 ПОБЕДА!',D:'🤝 НИЧЬЯ!',L:'😔 ПОРАЖЕНИЕ'};
@@ -2945,6 +3243,11 @@ function finalizeMatch(h,a,poss){
   document.getElementById('btn-dismiss').classList.add('show');
 
   G.trainedThisRound=false;
+  // ── v8: Живой трансферный рынок и развитие AI-клубов после матча
+  if(typeof updateLiveMarket==='function')updateLiveMarket();
+  if(typeof simulateAIClubs==='function')simulateAIClubs();
+  if(typeof maybeClubCrisis==='function')maybeClubCrisis();
+  if(typeof maybeRoomDrama==='function')maybeRoomDrama();
   if(G.matchday>=10)scheduleSeasonEnd();
   scheduleEvent();
   save();
@@ -2988,7 +3291,7 @@ function startNewSeason(){
     }
   });
   G.expiringContracts=expiringPlayers;
-  G.table=genTable(G.tier);
+  G.table=genTable(G.tier, false);
   save();renderAll();
   if(expiringPlayers.length>0){
     setTimeout(()=>showContractModal(),500);
@@ -3356,32 +3659,55 @@ function openSwapModal(type, pos, currentPlayerId, lineKey) {
 
   document.getElementById('swap-pos-label').textContent = posLabel;
 
-  // All available players to put here
-  const allPlayers = [...G.players].sort((a, b) => b.rating - a.rating);
+  // ── Совместимость позиций ──
+  // Хоккей: GK→GK, LD/RD→LD/RD (защ), LW/C/RW/ATT/FW/att→форварды
+  // Также любая «незнакомая» позиция (att, fw из старых данных) считается форвардом
+  function isCompatible(playerPos, slotPos){
+    if(!playerPos) return false;
+    const pp = playerPos.toUpperCase();
+    const sp = slotPos.toUpperCase();
+    if(sp==='GK') return pp==='GK';
+    if(sp==='LD' || sp==='RD') return pp==='LD' || pp==='RD' || pp==='DEF';
+    // Все остальные — форварды
+    const fwdSet = ['LW','C','RW','ATT','FW','ST','CAM','LM','RM','SF','SG','PG','PF'];
+    const isFwdSlot = ['LW','C','RW'].includes(sp);
+    if(isFwdSlot) return fwdSet.includes(pp) || pp.startsWith('B'); // включая bench
+    return true;
+  }
+
+  // Все игроки, отсортированные: совместимые сверху, по рейтингу
+  const sortedPlayers = [...G.players].sort((a, b) => {
+    const aMatch = type==='hockey' ? (isCompatible(a.pos, pos) ? 1 : 0) : 0;
+    const bMatch = type==='hockey' ? (isCompatible(b.pos, pos) ? 1 : 0) : 0;
+    if(aMatch !== bMatch) return bMatch - aMatch;
+    return b.rating - a.rating;
+  });
 
   let html = '';
 
-  // Option: remove player from slot (set empty)
   if (currentPlayer) {
     html += `<div class="swap-empty" onclick="confirmSwap(null)">
       ❌ Убрать ${currentPlayer.name.split(' ').slice(-1)[0]} из стартового состава
     </div>`;
   }
 
-  html += allPlayers.map(p => {
+  html += sortedPlayers.map(p => {
     const isCurrent = currentPlayerId === p.id;
     const rc = ratColor(p.rating);
     const energyColor = p.energy < 40 ? '#ef4444' : p.energy < 65 ? '#f59e0b' : '#16c784';
-    const posMatch = p.pos === pos;
+    const compat = type==='hockey' ? isCompatible(p.pos, pos) : true;
+    const posBadge = compat
+      ? '<span style="color:#16c784;font-size:10px">✓ может играть</span>'
+      : '<span style="color:#94a3b8;font-size:10px">⚠ не его позиция</span>';
     return `<div class="swap-player-row${isCurrent ? ' cur-slot' : ''}" onclick="confirmSwap('${p.id}')">
       <div class="swap-av" style="background:${p.injured?'#1f1010':'#1a2640'}">${p.name[0]}</div>
       <div class="swap-info">
-        <div class="swap-nm">${p.name} ${p.injured ? '🏥' : ''} ${posMatch ? '<span style="color:#16c784;font-size:10px">✓ позиция</span>' : ''}</div>
+        <div class="swap-nm">${p.name} ${p.injured ? '🏥' : ''} ${p.isYouth?'🌟':''} ${posBadge}</div>
         <div class="swap-meta">
-          ${POS_LABEL[p.pos]||p.pos} · ${p.age}л · 
+          ${POS_LABEL[p.pos]||p.pos} · ${p.age||'?'}л · 
           <span style="color:${energyColor}">⚡${p.energy}%</span> · 
           Форма ${p.form}%
-          ${isCurrent ? ' · <b style="color:#3b82f6">сейчас на поле</b>' : ''}
+          ${isCurrent ? ' · <b style="color:#3b82f6">в составе</b>' : ''}
         </div>
       </div>
       <div class="swap-rat ${rc}">${p.rating}</div>
@@ -3391,11 +3717,9 @@ function openSwapModal(type, pos, currentPlayerId, lineKey) {
   document.getElementById('swap-list').innerHTML = html;
   document.getElementById('swap-modal').classList.add('on');
 
-  // Highlight selected slot
   if (type === 'pitch') renderPitch();
   else renderHockeyLines();
 }
-
 function confirmSwap(newPlayerId) {
   if (!swapSlot) { closeSwap(); return; }
 
@@ -3637,342 +3961,153 @@ function closeNeg(){
 }
 
 // ══════════════════════════════════
-//  MATCH WATCH — moving dots
+//  ТАБЛО МАТЧА (вместо движущихся точек)
 // ══════════════════════════════════
-var _watchInterval = null;
-var _dotPositions = {
-  home: [{x:18,y:45},{x:25,y:25},{x:25,y:65},{x:35,y:45},{x:45,y:45}],
-  away: [{x:82,y:45},{x:75,y:25},{x:75,y:65},{x:65,y:45},{x:55,y:45}],
-  ball: {x:50,y:50}
-};
+var _scoreboardTimer = null;
+var _scoreboardCleanup = null;
 
 function initMatchWatch(){
-  _watchPhaseTimer=0; _watchPhase='buildup'; _watchPossession='home';
-  _watchBallX=50; _watchBallY=50;
-  _initPlayerPositions();
+  // Создаём табло на месте поля
+  var prog = document.querySelector('.mo-prog');
+  if(!prog) return;
+  var existing = document.getElementById('mo-watch-field');
+  if(existing) existing.remove();
 
-  var watch=document.getElementById('mo-watch-field');
-  if(!watch){
-    var watchDiv=document.createElement('div');
-    watchDiv.id='mo-watch-field';
-    var isSoccer=(typeof G!=='undefined'&&G.sport==='football');
-    watchDiv.className='mo-watch'+(isSoccer?'':' hockey-rink');
+  var board = document.createElement('div');
+  board.id = 'mo-watch-field';
+  board.className = 'mo-watch';
 
-    if(isSoccer){
-      watchDiv.innerHTML=
-        '<svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 280 170" preserveAspectRatio="none">'+
-        // Outer pitch outline
-        '<rect x="6" y="6" width="268" height="158" rx="6" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>'+
-        // Center line
-        '<line x1="140" y1="6" x2="140" y2="164" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>'+
-        // Center circle
-        '<circle cx="140" cy="85" r="22" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>'+
-        '<circle cx="140" cy="85" r="2.5" fill="rgba(255,255,255,.5)"/>'+
-        // Penalty areas (LEFT)
-        '<rect x="6" y="50" width="32" height="70" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>'+
-        '<rect x="6" y="68" width="14" height="34" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>'+
-        // Penalty areas (RIGHT)
-        '<rect x="242" y="50" width="32" height="70" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>'+
-        '<rect x="260" y="68" width="14" height="34" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>'+
-        // GOALS — белые сетки
-        '<rect x="0" y="74" width="6" height="22" fill="rgba(255,255,255,.15)" stroke="#fff" stroke-width="1.5"/>'+
-        '<line x1="0" y1="74" x2="6" y2="74" stroke="#fff" stroke-width="1"/>'+
-        '<line x1="0" y1="96" x2="6" y2="96" stroke="#fff" stroke-width="1"/>'+
-        '<rect x="274" y="74" width="6" height="22" fill="rgba(255,255,255,.15)" stroke="#fff" stroke-width="1.5"/>'+
-        // Penalty spots
-        '<circle cx="32" cy="85" r="1.5" fill="rgba(255,255,255,.4)"/>'+
-        '<circle cx="248" cy="85" r="1.5" fill="rgba(255,255,255,.4)"/>'+
-        '</svg>';
-    } else {
-      // ХОККЕЙНАЯ ПЛОЩАДКА — белый лёд, синие линии, красная центральная, ворота
-      watchDiv.innerHTML=
-        '<svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 280 170" preserveAspectRatio="none">'+
-        // Rink outline (rounded corners)
-        '<rect x="4" y="4" width="272" height="162" rx="22" fill="none" stroke="#1e3a8a" stroke-width="2"/>'+
-        // Red center line
-        '<line x1="140" y1="4" x2="140" y2="166" stroke="#ef4444" stroke-width="2.5"/>'+
-        // Blue lines
-        '<line x1="92" y1="4" x2="92" y2="166" stroke="#2563eb" stroke-width="2.2"/>'+
-        '<line x1="188" y1="4" x2="188" y2="166" stroke="#2563eb" stroke-width="2.2"/>'+
-        // Goal lines (red, near goals)
-        '<line x1="20" y1="4" x2="20" y2="166" stroke="#ef4444" stroke-width="1.2"/>'+
-        '<line x1="260" y1="4" x2="260" y2="166" stroke="#ef4444" stroke-width="1.2"/>'+
-        // Center face-off circle
-        '<circle cx="140" cy="85" r="20" fill="none" stroke="#1e3a8a" stroke-width="1.5"/>'+
-        '<circle cx="140" cy="85" r="2.5" fill="#1e3a8a"/>'+
-        // Face-off dots
-        '<circle cx="50" cy="40" r="3.5" fill="#ef4444"/>'+
-        '<circle cx="50" cy="130" r="3.5" fill="#ef4444"/>'+
-        '<circle cx="230" cy="40" r="3.5" fill="#ef4444"/>'+
-        '<circle cx="230" cy="130" r="3.5" fill="#ef4444"/>'+
-        // Face-off circles
-        '<circle cx="50" cy="40" r="14" fill="none" stroke="#ef4444" stroke-width="1"/>'+
-        '<circle cx="50" cy="130" r="14" fill="none" stroke="#ef4444" stroke-width="1"/>'+
-        '<circle cx="230" cy="40" r="14" fill="none" stroke="#ef4444" stroke-width="1"/>'+
-        '<circle cx="230" cy="130" r="14" fill="none" stroke="#ef4444" stroke-width="1"/>'+
-        // GOAL CREASES (полукруги-зоны вратарей) - left
-        '<path d="M 4 73 Q 24 85 4 97 Z" fill="rgba(59,130,246,.25)" stroke="#2563eb" stroke-width="1"/>'+
-        // GOAL CREASE - right
-        '<path d="M 276 73 Q 256 85 276 97 Z" fill="rgba(59,130,246,.25)" stroke="#2563eb" stroke-width="1"/>'+
-        // GOALS — красные с сеткой
-        '<rect x="-2" y="76" width="6" height="18" fill="rgba(239,68,68,.6)" stroke="#dc2626" stroke-width="1.5"/>'+
-        '<line x1="0" y1="76" x2="2" y2="78" stroke="#fff" stroke-width=".6"/>'+
-        '<line x1="0" y1="80" x2="2" y2="82" stroke="#fff" stroke-width=".6"/>'+
-        '<line x1="0" y1="84" x2="2" y2="86" stroke="#fff" stroke-width=".6"/>'+
-        '<line x1="0" y1="88" x2="2" y2="90" stroke="#fff" stroke-width=".6"/>'+
-        '<rect x="276" y="76" width="6" height="18" fill="rgba(239,68,68,.6)" stroke="#dc2626" stroke-width="1.5"/>'+
-        '<line x1="278" y1="76" x2="280" y2="78" stroke="#fff" stroke-width=".6"/>'+
-        '<line x1="278" y1="80" x2="280" y2="82" stroke="#fff" stroke-width=".6"/>'+
-        '<line x1="278" y1="84" x2="280" y2="86" stroke="#fff" stroke-width=".6"/>'+
-        '<line x1="278" y1="88" x2="280" y2="90" stroke="#fff" stroke-width=".6"/>'+
-        '</svg>';
-    }
-    var prog=document.querySelector('.mo-prog');
-    if(prog&&prog.nextSibling)prog.parentNode.insertBefore(watchDiv,prog.nextSibling);
-    else if(prog)prog.parentNode.appendChild(watchDiv);
-    // Игроки: 4 полевых + 1 вратарь (5+5+ball)
-    for(var i=0;i<5;i++){
-      var dh=document.createElement('div');dh.className='mo-dot home'+(i===0?' gk':'');dh.id='dot-h-'+i;dh.textContent=i===0?'🥅':(i+'');
-      watchDiv.appendChild(dh);
-      var da=document.createElement('div');da.className='mo-dot away'+(i===0?' gk':'');da.id='dot-a-'+i;da.textContent=i===0?'🥅':(i+'');
-      watchDiv.appendChild(da);
-    }
-    var ball=document.createElement('div');ball.className='mo-dot ball';ball.id='dot-ball';
-    watchDiv.appendChild(ball);
-  } else {
-    // Перерисовать SVG если поменялся вид спорта
-    var svgEl=watch.querySelector('svg');
-    if(svgEl)svgEl.remove();
-    var isSoccer2=(typeof G!=='undefined'&&G.sport==='football');
-    watch.className='mo-watch'+(isSoccer2?'':' hockey-rink');
-  }
+  var sport = (typeof G!=='undefined' ? G.sport : 'football');
+  var totalDuration = sport==='hockey' ? 60 : sport==='basketball' ? 40 : 90;
+  var periods = sport==='hockey' ? 3 : sport==='basketball' ? 4 : 2;
+
+  board.innerHTML = '<div class="scoreboard-frame">'+
+    '<div class="sb-period-row">'+
+      '<div class="sb-period" id="sb-period">— период</div>'+
+      '<div class="sb-clock" id="sb-clock">0\'</div>'+
+    '</div>'+
+    '<div class="sb-main">'+
+      '<div class="sb-team">'+
+        '<div class="sb-team-emo">'+(typeof G!=='undefined'?G.clubEmoji:'⚽')+'</div>'+
+        '<div class="sb-team-nm" id="sb-home-name">'+(typeof G!=='undefined'?G.clubName:'ДОМ').slice(0,10).toUpperCase()+'</div>'+
+      '</div>'+
+      '<div class="sb-vs-block">'+
+        '<div class="sb-score-num" id="sb-home-score">0</div>'+
+        '<div class="sb-score-sep">:</div>'+
+        '<div class="sb-score-num" id="sb-away-score">0</div>'+
+      '</div>'+
+      '<div class="sb-team">'+
+        '<div class="sb-team-emo">'+(typeof matchOppEmoji!=='undefined'?matchOppEmoji:'🏟')+'</div>'+
+        '<div class="sb-team-nm" id="sb-away-name">'+(typeof matchOppName!=='undefined'?matchOppName:'ГОСТИ').slice(0,10).toUpperCase()+'</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="sb-progress"><div class="sb-progress-fill" id="sb-prog-fill" style="width:0%"></div></div>'+
+    '<div class="sb-action" id="sb-action">⏱ Начало матча</div>'+
+    '<div class="sb-momentum-bar"><div class="sb-momentum-marker" id="sb-momentum" style="left:50%"></div></div>'+
+    '<div class="sb-stats-row">'+
+      '<div class="sb-stat"><div class="sb-stat-label">Атаки</div><div class="sb-stat-val h" id="sb-stat-attacks">0</div></div>'+
+      '<div class="sb-stat"><div class="sb-stat-label">Опасные</div><div class="sb-stat-val" id="sb-stat-danger">0</div></div>'+
+      '<div class="sb-stat"><div class="sb-stat-label">Атаки</div><div class="sb-stat-val a" id="sb-stat-attacks-a">0</div></div>'+
+    '</div>'+
+  '</div>';
+
+  prog.parentNode.insertBefore(board, prog.nextSibling);
 }
 
-function startWatchAnimation(myScore, oppScore){
-  initMatchWatch();
-  if(_watchInterval) clearInterval(_watchInterval);
-  _watchInterval = setInterval(function(){
-    animateWatchDots(myScore, oppScore);
-  }, 1200);
+function startWatchAnimation(){
+  // Табло обновляется хуком из playPeriod через updateScoreboard()
 }
 
 function stopWatchAnimation(){
-  if(_watchInterval){ clearInterval(_watchInterval); _watchInterval=null; }
+  if(_scoreboardTimer){clearInterval(_scoreboardTimer);_scoreboardTimer=null;}
+  if(_scoreboardCleanup){_scoreboardCleanup();_scoreboardCleanup=null;}
 }
 
-// ── MATCH WATCH STATE ──
-var _watchPhase = 'buildup'; // buildup|pass|dribble|shot|save|tackle|goal|counterattack
-var _watchPossession = 'home'; // who has ball
-var _watchBallX = 50, _watchBallY = 50;
-var _watchActionLabel = '';
-var _watchPhaseTimer = 0;
-// === РЕАЛИСТИЧНЫЕ ФОРМАЦИИ — игроки в своих зонах ===
-// 0 = вратарь, 1-2 защитники (своя зона), 3-4 форварды (любая)
-var _homePos = [
-  {x:6,  y:50, type:'gk',  zone:[0,30]},   // вратарь дома слева
-  {x:25, y:30, type:'def', zone:[10,55]},  // защитник
-  {x:25, y:70, type:'def', zone:[10,55]},
-  {x:45, y:35, type:'fwd', zone:[20,90]},  // форвард
-  {x:45, y:65, type:'fwd', zone:[20,90]},
-];
-var _awayPos = [
-  {x:94, y:50, type:'gk',  zone:[70,100]},
-  {x:75, y:30, type:'def', zone:[45,90]},
-  {x:75, y:70, type:'def', zone:[45,90]},
-  {x:55, y:35, type:'fwd', zone:[10,80]},
-  {x:55, y:65, type:'fwd', zone:[10,80]},
-];
-var _curHomePos, _curAwayPos;
-
-function _initPlayerPositions(){
-  _curHomePos = _homePos.map(p=>({x:p.x, y:p.y, type:p.type, zone:p.zone.slice()}));
-  _curAwayPos = _awayPos.map(p=>({x:p.x, y:p.y, type:p.type, zone:p.zone.slice()}));
-}
-
-function _clamp01(v){return Math.max(0,Math.min(100,v));}
-function _clampZone(v,zone){return Math.max(zone[0],Math.min(zone[1],v));}
-
-function _setDot(id,x,y,w,h){
-  var d=document.getElementById(id);
-  if(!d)return;
-  d.style.left=Math.round(x/100*w)+'px';
-  d.style.top=Math.round(y/100*h)+'px';
-}
-
-function _showActionLabel(text, color){
-  var field=document.getElementById('mo-watch-field');
-  if(!field)return;
-  var lbl=document.getElementById('mo-action-lbl');
-  if(!lbl){lbl=document.createElement('div');lbl.id='mo-action-lbl';
-    lbl.style.cssText='position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;pointer-events:none;transition:opacity .3s;white-space:nowrap;z-index:10;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4);';
-    field.appendChild(lbl);}
-  lbl.textContent=text;
-  lbl.style.background=color||'rgba(22,199,132,.85)';
-  lbl.style.opacity='1';
-  setTimeout(()=>{if(lbl)lbl.style.opacity='0';},900);
-}
-
-function _flashGoal(side, field){
-  // Красивая вспышка при голе
-  var flash=document.createElement('div');
-  flash.style.cssText='position:absolute;inset:0;background:'+(side==='home'?'radial-gradient(circle at 0% 50%, rgba(22,199,132,.7), transparent 60%)':'radial-gradient(circle at 100% 50%, rgba(239,68,68,.7), transparent 60%)')+';z-index:7;pointer-events:none;animation:goalFlash .9s ease-out;';
-  field.appendChild(flash);
-  setTimeout(()=>flash.remove(),900);
-}
-
-function animateWatchDots(myScore, oppScore){
-  var field=document.getElementById('mo-watch-field');
-  if(!field)return;
-  var w=field.offsetWidth||280, h=field.offsetHeight||170;
-  var isSoccer = (typeof G!=='undefined'&&G.sport==='football');
-
-  if(!_curHomePos||!_curAwayPos)_initPlayerPositions();
-
-  _watchPhaseTimer++;
-
-  // ── PHASE MACHINE ──
-  if(_watchPhaseTimer%2===0){
-    var myAdvantage = (typeof G!=='undefined')?(avgRat()/100):0.5;
-    var r=Math.random();
-    if(_watchPossession==='home'){
-      if(r<0.30){_watchPhase='pass';_showActionLabel('Пас 🟢','rgba(22,199,132,.85)');}
-      else if(r<0.50){_watchPhase='dribble';_showActionLabel('Прорыв 🟢','rgba(34,212,163,.85)');}
-      else if(r<0.65){_watchPhase='shot';_showActionLabel(isSoccer?'УДАР! ⚽':'БРОСОК! 🥅','rgba(245,158,11,.95)');}
-      else if(r<0.80){_watchPhase='tackle';_watchPossession='away';_showActionLabel('Отбор 🔴','rgba(239,68,68,.85)');}
-      else if(r<0.92){_watchPhase='buildup';}
-      else{_watchPhase='counterattack';_watchPossession=Math.random()<myAdvantage?'home':'away';_showActionLabel('Контратака!','rgba(168,85,247,.85)');}
-    } else {
-      if(r<0.30){_watchPhase='pass';_showActionLabel('Пас 🔴','rgba(239,68,68,.85)');}
-      else if(r<0.50){_watchPhase='dribble';_showActionLabel('Прорыв 🔴','rgba(248,120,120,.85)');}
-      else if(r<0.65){_watchPhase='shot';_showActionLabel(isSoccer?'Удар по нашим воротам!':'Бросок!','rgba(239,68,68,.95)');}
-      else if(r<0.82){_watchPhase='tackle';_watchPossession='home';_showActionLabel('Перехват 🟢','rgba(22,199,132,.85)');}
-      else{_watchPhase='buildup';}
+// === Обновление табло (счёт + момент) ===
+window.updateScoreboard = function(opts){
+  if(!opts) opts = {};
+  var hEl = document.getElementById('sb-home-score');
+  var aEl = document.getElementById('sb-away-score');
+  if(!hEl || !aEl) return;
+  if(opts.homeScore !== undefined && hEl.textContent !== String(opts.homeScore)){
+    hEl.textContent = opts.homeScore;
+    hEl.classList.remove('flash');
+    void hEl.offsetWidth;
+    hEl.classList.add('flash');
+  }
+  if(opts.awayScore !== undefined && aEl.textContent !== String(opts.awayScore)){
+    aEl.textContent = opts.awayScore;
+    aEl.classList.remove('flash');
+    void aEl.offsetWidth;
+    aEl.classList.add('flash');
+  }
+  // Лидер выделен зелёным
+  var hN = document.getElementById('sb-home-name'), aN = document.getElementById('sb-away-name');
+  if(hN && aN && opts.homeScore!==undefined){
+    hN.classList.toggle('lead', opts.homeScore > opts.awayScore);
+    aN.classList.toggle('lead', opts.awayScore > opts.homeScore);
+  }
+  if(opts.minute !== undefined){
+    var clk = document.getElementById('sb-clock');
+    if(clk){
+      var sport=G.sport;
+      var totalDuration=sport==='hockey'?60:sport==='basketball'?40:90;
+      var remaining=Math.max(0,totalDuration-opts.minute);
+      clk.textContent = remaining + "'";
+      clk.classList.toggle('urgent', remaining<=5);
     }
   }
-
-  // ── ИГРОКИ В СВОИХ ЗОНАХ ──
-  _curHomePos = _curHomePos.map((p,i)=>{
-    var base=_homePos[i];
-    // GK всегда у ворот
-    if(p.type==='gk'){
-      var gkX=8+Math.sin(_watchPhaseTimer*0.3)*1.5;
-      var gkY=50+(_watchBallY-50)*0.15;
-      return {x:gkX,y:_clamp01(gkY),type:p.type,zone:p.zone};
-    }
-    var targetX=base.x, targetY=base.y;
-    // При атаке home — все двигаются к чужим воротам, но в своей зоне
-    if(_watchPossession==='home'){
-      targetX=base.x+(p.type==='def'?6:18);
-    } else {
-      targetX=base.x-(p.type==='def'?2:8);
-    }
-    if(_watchPhase==='shot'&&_watchPossession==='home'&&p.type==='fwd'){
-      // Форварды лезут к чужим воротам
-      targetX=p.zone[1]-5;
-      targetY=base.y+rnd(-8,8);
-    }
-    if(_watchPhase==='counterattack'&&_watchPossession==='home'){
-      targetX=base.x+12;
-    }
-    targetX=_clampZone(targetX+rnd(-3,3),p.zone);
-    targetY=_clamp01(base.y+rnd(-8,8));
-    return {x:p.x+(targetX-p.x)*0.4, y:p.y+(targetY-p.y)*0.4, type:p.type, zone:p.zone};
-  });
-
-  _curAwayPos = _curAwayPos.map((p,i)=>{
-    var base=_awayPos[i];
-    if(p.type==='gk'){
-      var gkX=92-Math.sin(_watchPhaseTimer*0.3)*1.5;
-      var gkY=50+(_watchBallY-50)*0.15;
-      return {x:gkX,y:_clamp01(gkY),type:p.type,zone:p.zone};
-    }
-    var targetX=base.x, targetY=base.y;
-    if(_watchPossession==='away'){
-      targetX=base.x-(p.type==='def'?6:18);
-    } else {
-      targetX=base.x+(p.type==='def'?2:8);
-    }
-    if(_watchPhase==='shot'&&_watchPossession==='away'&&p.type==='fwd'){
-      targetX=p.zone[0]+5;
-      targetY=base.y+rnd(-8,8);
-    }
-    targetX=_clampZone(targetX+rnd(-3,3),p.zone);
-    targetY=_clamp01(base.y+rnd(-8,8));
-    return {x:p.x+(targetX-p.x)*0.4, y:p.y+(targetY-p.y)*0.4, type:p.type, zone:p.zone};
-  });
-
-  // ── ШАЙБА/МЯЧ ──
-  var bTargetX=_watchBallX, bTargetY=_watchBallY;
-  if(_watchPhase==='pass'||_watchPhase==='dribble'){
-    if(_watchPossession==='home'){
-      var carrier=_curHomePos[3+rnd(0,1)]; // форвард
-      bTargetX=carrier?carrier.x+rnd(-3,8):60;
-      bTargetY=carrier?carrier.y:50;
-    } else {
-      var carrierA=_curAwayPos[3+rnd(0,1)];
-      bTargetX=carrierA?carrierA.x-rnd(-3,8):40;
-      bTargetY=carrierA?carrierA.y:50;
-    }
-  } else if(_watchPhase==='shot'){
-    bTargetX=_watchPossession==='home'?rnd(82,93):rnd(7,18);
-    bTargetY=rnd(40,60);
-  } else if(_watchPhase==='tackle'){
-    bTargetX=rnd(35,65); bTargetY=rnd(35,65);
-  } else if(_watchPhase==='counterattack'){
-    bTargetX=_watchPossession==='home'?rnd(55,75):rnd(25,45);
-    bTargetY=rnd(30,70);
-  } else {
-    bTargetX=_watchPossession==='home'?rnd(25,55):rnd(45,75);
-    bTargetY=rnd(30,70);
+  if(opts.period !== undefined){
+    var pEl = document.getElementById('sb-period');
+    if(pEl) pEl.textContent = opts.period;
   }
-  _watchBallX=_watchBallX+(_clamp01(bTargetX)-_watchBallX)*0.55;
-  _watchBallY=_watchBallY+(_clamp01(bTargetY)-_watchBallY)*0.55;
-
-  // ── RENDER ──
-  for(var i=0;i<5;i++){
-    var hp=_curHomePos[i], ap=_curAwayPos[i];
-    if(hp)_setDot('dot-h-'+i, hp.x, hp.y, w, h);
-    if(ap)_setDot('dot-a-'+i, ap.x, ap.y, w, h);
+  if(opts.progress !== undefined){
+    var pFill = document.getElementById('sb-prog-fill');
+    if(pFill) pFill.style.width = (opts.progress*100) + '%';
   }
-  _setDot('dot-ball',_watchBallX,_watchBallY,w,h);
-
-  // ── ГОЛ — мяч заходит в ворота с эффектом ──
-  if(_watchPhase==='shot'&&Math.random()<0.07){
-    var whoScored=_watchPossession;
-    // Шайба летит точно в ворота
-    if(whoScored==='home'){
-      _setDot('dot-ball', 2, 50, w, h);
-    } else {
-      _setDot('dot-ball', 98, 50, w, h);
+  if(opts.action !== undefined){
+    var act = document.getElementById('sb-action');
+    if(act){
+      act.textContent = opts.action;
+      act.className = 'sb-action' + (opts.actionClass ? ' ' + opts.actionClass : '');
     }
-    _flashGoal(whoScored, field);
-    _showActionLabel(whoScored==='home'?'⚽ ГОЛ! ⚽':'🚨 ПРОПУСТИЛИ',whoScored==='home'?'rgba(22,199,132,.95)':'rgba(239,68,68,.95)');
-    setTimeout(function(){
-      _watchPhase='buildup';
-      _watchPossession=whoScored==='home'?'away':'home';
-      _initPlayerPositions();
-      _watchBallX=50;_watchBallY=50;
-    },800);
   }
-}
+  if(opts.momentum !== undefined){
+    // -1 ... +1 (отрицательные = в нашу пользу, положительные = в пользу соперника)
+    var mPos = Math.max(0, Math.min(100, 50 + opts.momentum*40));
+    var mark = document.getElementById('sb-momentum');
+    if(mark) mark.style.left = mPos + '%';
+  }
+  if(opts.statHomeAttacks !== undefined){
+    var s1 = document.getElementById('sb-stat-attacks');
+    if(s1) s1.textContent = opts.statHomeAttacks;
+  }
+  if(opts.statAwayAttacks !== undefined){
+    var s2 = document.getElementById('sb-stat-attacks-a');
+    if(s2) s2.textContent = opts.statAwayAttacks;
+  }
+  if(opts.statDanger !== undefined){
+    var s3 = document.getElementById('sb-stat-danger');
+    if(s3) s3.textContent = opts.statDanger;
+  }
+};
 
-// Hook into startMatch to begin watch
+// Hook into startMatch — инициализирует табло
 var _origAnimateMatch = typeof animateMatch === 'function' ? animateMatch : null;
 if(_origAnimateMatch){
-  var _patchedAnimate = function(){
+  window.animateMatch = function(){
     initMatchWatch();
-    startWatchAnimation(0,0);
     _origAnimateMatch.apply(this, arguments);
   };
-  // Replace via override pattern
-  window.animateMatch = _patchedAnimate;
 }
 
-// Stop watch on dismiss
+// Stop on dismiss
 var _origDismissMatch = typeof dismissMatch === 'function' ? dismissMatch : null;
 if(_origDismissMatch){
   window.dismissMatch = function(){
     stopWatchAnimation();
+    var board = document.getElementById('mo-watch-field');
+    if(board) board.remove();
     _origDismissMatch.apply(this, arguments);
   };
 }
@@ -4412,9 +4547,273 @@ if(_origFinalizeOuter){
   };
 }
 
-</script>
+// ══════════════════════════════════════════════════
+//  v8: ЖИВОЙ ТРАНСФЕРНЫЙ РЫНОК
+// ══════════════════════════════════════════════════
+function updateLiveMarket(){
+  if(!marketPool || !marketPool.length) return;
+  marketPool.forEach(p=>{
+    const oldPrice=p.price;
+    // Случайные изменения: травма-падение, хорошая игра-рост, аукцион
+    const event=Math.random();
+    let trend='';
+    if(event<0.10){
+      // Травма игрока на рынке
+      p.price=Math.floor(p.price*0.7);
+      p.injured=true;p.injuryTurns=rnd(2,4);
+      trend='🏥 травма';
+    } else if(event<0.20){
+      // Аукцион: несколько клубов интересуются
+      p.price=Math.floor(p.price*1.4);
+      trend='🔥 аукцион';
+      addNewsItem(`🔥 ${p.name}: за ним охотятся 3 клуба, цена ₽${fmt(p.price)}`,'transfer','away');
+    } else if(event<0.40){
+      // Хорошая игра — небольшой рост
+      p.price=Math.floor(p.price*(1+Math.random()*0.15));
+      trend='📈';
+    } else if(event<0.55){
+      // Игрок задержался — небольшое падение
+      p.price=Math.floor(p.price*(1-Math.random()*0.10));
+      trend='📉';
+    }
+    p.priceTrend=trend;
+    p.priceChange=p.price-oldPrice;
+  });
+  // Кража трансфера: если игрок сильно подорожал, его могут "украсть"
+  marketPool=marketPool.filter(p=>{
+    if(p.priceTrend==='🔥 аукцион' && Math.random()<0.25){
+      addNewsItem(`💔 ${p.name} ушёл в другой клуб (вы не успели)`,'transfer','away');
+      return false;
+    }
+    return true;
+  });
+}
 
-<!-- TRAINING MODAL -->
+// ══════════════════════════════════════════════════
+//  v8: AI-КЛУБЫ — другие клубы развиваются
+// ══════════════════════════════════════════════════
+function simulateAIClubs(){
+  if(!G.table || !G.table.length) return;
+  const others=G.table.filter(t=>!t.isMe);
+  others.forEach(t=>{
+    const r=Math.random();
+    if(r<0.10){
+      // Купили звезду — рейтинг ★1
+      t.rating=Math.min(95,(t.rating||50)+1);
+      addNewsItem(`🌐 ${t.name} подписали нового лидера команды`,'opp','away');
+    } else if(r<0.18){
+      // Сменили тренера
+      addNewsItem(`🌐 В ${t.name} новый главный тренер — клуб ищет свежий импульс`,'opp','away');
+    } else if(r<0.24){
+      // Травма ключевого
+      t.rating=Math.max(20,(t.rating||50)-1);
+      addNewsItem(`🌐 ${t.name}: травма у капитана, клуб ослаблен`,'opp','away');
+    } else if(r<0.30){
+      // Усиление состава
+      t.rating=Math.min(95,(t.rating||50)+2);
+      addNewsItem(`🌐 ${t.name} массово подписали 3 игроков — серьёзный апгрейд`,'opp','away');
+    }
+  });
+}
+
+// ══════════════════════════════════════════════════
+//  v8: КРИЗИСЫ КЛУБА
+// ══════════════════════════════════════════════════
+const CLUB_CRISES=[
+  {ico:'💸',title:'Спонсор уходит',body:'Главный спонсор расторгает контракт. Срочно нужно найти замену!',choices:[
+    {txt:'🤝 Срочно искать (₽3000)',cb:g=>{if(g.budget>=3000){g.budget-=3000;return 'Найден экстренный спонсор +₽5000/матч';}return 'Денег нет, придётся туго';}},
+    {txt:'😔 Пережить',cb:g=>{g.fans=Math.max(0,g.fans-200);return 'Бюджет урезан, фанаты недовольны';}},
+  ]},
+  {ico:'⚠️',title:'Касса пуста',body:'Бюджет уходит в минус. Срочно нужно решение.',choices:[
+    {txt:'💰 Продать молодого (₽4000)',cb:g=>{const y=g.players.find(p=>p.isYouth);if(y){g.budget+=4000;g.players=g.players.filter(p=>p.id!==y.id);return y.name+' продан, +₽4000';}return 'Молодых нет, продали часть атрибутики +₽2000';}},
+    {txt:'🏦 Кредит',cb:g=>{g.budget+=10000;g.debt=(g.debt||0)+15000;return 'Получено ₽10000, через сезон вернуть ₽15000';}},
+  ]},
+  {ico:'😡',title:'Фанаты требуют изменений',body:'Болельщики устали от поражений и устроили акцию протеста. Требуют действий.',choices:[
+    {txt:'👨‍🏫 Поменять штаб',cb:g=>{Object.keys(g.staff).forEach(k=>g.staff[k]=0);g.staffSalaries={};g.fans+=300;return 'Штаб распущен, фанаты успокоились';}},
+    {txt:'😤 Игнорировать',cb:g=>{g.fans=Math.max(0,g.fans-500);return '500 фанатов ушли, пресса в шоке';}},
+  ]},
+  {ico:'🚪',title:'Лидер хочет уйти',body:'Звёздный игрок просится в другой клуб. Что делать?',choices:[
+    {txt:'💰 Поднять зарплату (+₽1500/мес)',cb:g=>{
+      const top=[...g.players].sort((a,b)=>b.rating-a.rating)[0];
+      if(top){top.salary+=1500;top.morale=100;return top.name+' остаётся! Мораль +100%';}
+      return 'Лидеров нет';
+    }},
+    {txt:'💸 Продать с выгодой',cb:g=>{
+      const top=[...g.players].sort((a,b)=>b.rating-a.rating)[0];
+      if(top){const fee=top.rating*200;g.budget+=fee;g.players=g.players.filter(p=>p.id!==top.id);return top.name+' продан за ₽'+fmt(fee);}
+      return 'Лидеров нет';
+    }},
+  ]},
+];
+
+function maybeClubCrisis(){
+  // 8% шанс кризиса после матча
+  if(Math.random()>0.08) return;
+  const crisis=CLUB_CRISES[rnd(0,CLUB_CRISES.length-1)];
+  if(typeof pendingEvents!=='undefined'){
+    pendingEvents.unshift(crisis);
+    if(typeof renderEventsTicker==='function')renderEventsTicker();
+  }
+  addNewsItem(`🚨 КРИЗИС: ${crisis.title}`,'opp','home');
+}
+
+// ══════════════════════════════════════════════════
+//  v8: ДРАМА В РАЗДЕВАЛКЕ — конфликты
+// ══════════════════════════════════════════════════
+const ROOM_DRAMAS=[
+  {body:'Капитан требует больше уважения от молодых игроков',choices:[
+    {txt:'🦁 Поддержать капитана',cb:g=>{const t=[...g.players].sort((a,b)=>b.rating-a.rating)[0];if(t){t.morale=100;}g.players.filter(p=>p.isYouth).forEach(p=>{p.morale=Math.max(20,p.morale-15);});return 'Капитан доволен, молодые недовольны';}},
+    {txt:'🌟 На стороне молодёжи',cb:g=>{g.players.filter(p=>p.isYouth).forEach(p=>{p.morale=100;});const t=[...g.players].sort((a,b)=>b.rating-a.rating)[0];if(t){t.morale=Math.max(20,t.morale-20);}return 'Молодёжь рада, капитан в шоке';}},
+  ]},
+  {body:'Звёздный игрок недоволен тренером — хочет смены',choices:[
+    {txt:'😡 Уволить тренера',cb:g=>{if(g.staff.head>0){g.staff.head=0;return 'Тренер уволен, ищем нового';}return 'Тренера нет';}},
+    {txt:'💪 Поддержать тренера',cb:g=>{const t=[...g.players].sort((a,b)=>b.rating-a.rating)[0];if(t){t.morale=Math.max(10,t.morale-30);}return 'Звезда обиделась, мораль -30';}},
+  ]},
+  {body:'Раскол: команда поделилась на 2 лагеря',choices:[
+    {txt:'🍕 Тимбилдинг (₽1500)',cb:g=>{if(g.budget>=1500){g.budget-=1500;g.players.forEach(p=>{p.morale=Math.min(100,p.morale+20);});return 'Команда сплотилась!';}return 'Денег нет';}},
+    {txt:'🤐 Игнорировать',cb:g=>{g.players.forEach(p=>{p.morale=Math.max(20,p.morale-10);});return 'Атмосфера ухудшилась';}},
+  ]},
+];
+
+function maybeRoomDrama(){
+  // 5% шанс
+  if(Math.random()>0.05) return;
+  const d=ROOM_DRAMAS[rnd(0,ROOM_DRAMAS.length-1)];
+  if(typeof pendingEvents!=='undefined'){
+    pendingEvents.unshift({ico:'🎭',title:'Драма в раздевалке',body:d.body,choices:d.choices});
+    if(typeof renderEventsTicker==='function')renderEventsTicker();
+  }
+  addNewsItem(`🎭 Конфликт в раздевалке`,'opp','home');
+}
+
+// ══════════════════════════════════════════════════
+//  v8: БУЛЛИТЫ / ПЕНАЛЬТИ — выбор кто бьёт (для хоккея/футбола при ничьей)
+// ══════════════════════════════════════════════════
+function maybeShootout(state){
+  // Только если ничья и финальный период, и хоккей/футбол (баскет всегда есть овертайм)
+  if(state.hG !== state.aG) return false;
+  if(G.sport === 'basketball') return false;
+  return true;
+}
+
+function showShootoutModal(state, onDone){
+  const sport=G.sport;
+  const isHockey=sport==='hockey';
+  const title=isHockey?'🏒 БУЛЛИТЫ':'⚽ ПЕНАЛЬТИ';
+  const skaterPool=G.players.filter(p=>!p.injured && p.pos!=='GK').sort((a,b)=>b.rating-a.rating).slice(0,8);
+  if(!skaterPool.length){onDone(0,0);return;}
+
+  let myShootout=0, oppShootout=0, round=1;
+  const maxRounds=isHockey?5:5;
+  let usedIds=new Set();
+
+  function renderShootoutPick(){
+    const available=skaterPool.filter(p=>!usedIds.has(p.id));
+    if(round>maxRounds || available.length===0){
+      const ov=document.getElementById('shootout-modal');if(ov)ov.remove();
+      onDone(myShootout, oppShootout);
+      return;
+    }
+    let html=`<div class="shootout-overlay-bg" id="shootout-modal">
+      <div class="shootout-modal">
+        <div class="shootout-emoji">${isHockey?'🥅':'⚽'}</div>
+        <div class="shootout-title">${title}</div>
+        <div class="shootout-sub">Раунд ${round}/${maxRounds} · Счёт буллитов: <b style="color:#22d4a3">${myShootout}</b>:<b style="color:#f87878">${oppShootout}</b></div>
+        <div class="shootout-pick-label">👇 Кого ставим бить:</div>
+        <div class="shootout-pickers">`;
+    available.forEach(p=>{
+      const rc=p.rating>=80?'rat-top':p.rating>=65?'rat-mid':'rat-low';
+      html+=`<div class="shootout-pick-card" onclick="executeShootout('${p.id}')">
+        <div class="shootout-pick-name">${p.name.split(' ').slice(-1)[0]}</div>
+        <div class="shootout-pick-meta">${POS_LABEL[p.pos]||p.pos} · форма ${p.form}%</div>
+        <div class="shootout-pick-rat ${rc}">${p.rating}</div>
+      </div>`;
+    });
+    html+=`</div></div></div>`;
+    let ov=document.getElementById('shootout-modal');if(ov)ov.remove();
+    document.body.insertAdjacentHTML('beforeend',html);
+  }
+
+  window.executeShootout=function(pid){
+    const p=skaterPool.find(x=>x.id===pid);if(!p)return;
+    usedIds.add(pid);
+    // Шанс попадания зависит от рейтинга и формы
+    const chance=0.35+p.rating/200+(p.form||50)/300;
+    const made=Math.random()<chance;
+    if(made){
+      myShootout++;
+      addMatchLogEvent && addMatchLogEvent(`🎯 ${p.name.split(' ').slice(-1)[0]} забивает буллит! ${myShootout}:${oppShootout}`);
+    } else {
+      addMatchLogEvent && addMatchLogEvent(`🚫 ${p.name.split(' ').slice(-1)[0]}: вратарь отбил! ${myShootout}:${oppShootout}`);
+    }
+    // Соперник бьёт
+    setTimeout(()=>{
+      const oppMade=Math.random()<0.45;
+      if(oppMade){
+        oppShootout++;
+        addMatchLogEvent && addMatchLogEvent(`😬 Соперник забил. ${myShootout}:${oppShootout}`);
+      } else {
+        addMatchLogEvent && addMatchLogEvent(`🛡 Наш вратарь спас! ${myShootout}:${oppShootout}`);
+      }
+      round++;
+      // Если разница достижима — продолжаем
+      const remaining=maxRounds-round+1;
+      if(round>maxRounds && myShootout===oppShootout){
+        // Внезапная смерть — продолжаем по 1 раунду
+        renderShootoutPick();
+      } else if(Math.abs(myShootout-oppShootout)>remaining){
+        const ov=document.getElementById('shootout-modal');if(ov)ov.remove();
+        onDone(myShootout, oppShootout);
+      } else {
+        renderShootoutPick();
+      }
+    },800);
+  };
+
+  renderShootoutPick();
+}
+
+// Хук в finalizeMatch — если ничья на финале, сначала показать буллиты
+const _origFinalizeMatch_v8 = typeof finalizeMatch === 'function' ? finalizeMatch : null;
+if(_origFinalizeMatch_v8){
+  window.finalizeMatch = function(h, a, poss){
+    if(maybeShootout({hG:h,aG:a})){
+      // Создаём фейковый state для буллитов
+      showShootoutModal({hG:h,aG:a}, function(myS, oppS){
+        // По буллитам определяется победитель — но основной счёт остаётся ничьей
+        // Показываем сообщение и финализируем как победу/поражение по буллитам
+        if(myS > oppS){
+          toast('🎉 Победа по буллитам '+myS+':'+oppS+'!');
+          _origFinalizeMatch_v8.call(this, h+1, a, poss);  // +1 чтобы засчиталось как победа
+        } else if(myS < oppS){
+          toast('😔 Поражение по буллитам '+myS+':'+oppS);
+          _origFinalizeMatch_v8.call(this, h, a+1, poss);
+        } else {
+          _origFinalizeMatch_v8.call(this, h, a, poss);
+        }
+      });
+    } else {
+      _origFinalizeMatch_v8.call(this, h, a, poss);
+    }
+  };
+}
+
+// ══════════════════════════════════════════════════
+//  v8: ПЛЕЙ-ОФФ И КУБОК
+// ══════════════════════════════════════════════════
+function isPlayoff(){
+  return G.matchday>=10 && G.season>=2;
+}
+
+// Проверка квалификации в плей-офф
+function checkPlayoffQualification(){
+  if(!G.table)return false;
+  const sorted=[...G.table].sort((a,b)=>b.pts-a.pts);
+  const myPos=sorted.findIndex(t=>t.isMe)+1;
+  return myPos<=4; // топ-4 в плей-офф
+}
+
+</script>
 <div id="train-modal" style="display:none;position:fixed;inset:0;z-index:350;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);flex-direction:column;align-items:center;justify-content:flex-start;padding:20px 16px;overflow-y:auto;">
   <div style="width:100%;max-width:360px;">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
